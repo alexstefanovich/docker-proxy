@@ -1,0 +1,15 @@
+name: proxy
+
+services:
+  proxy:
+    image: ghcr.io/alexstefanovich/proxy:latest
+    build:
+      dockerfile: ./Dockerfile
+      platforms:
+        - linux/amd64
+        - linux/arm64
+    restart: always
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
